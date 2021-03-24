@@ -693,6 +693,14 @@ nav.main-menu {
      font-weight: 100;
 }
 
+.copyright_text_black{
+     width: 100%;
+     float: left;
+     font-size: 14pt;
+     color: black;
+     text-align: center;
+     font-weight: 100;
+}
 
 
 
