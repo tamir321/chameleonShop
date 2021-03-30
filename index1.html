@@ -50,6 +50,24 @@ function myFunction() {
 	
 	
 }
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  console.log("dragStart");
+  ev.dataTransfer.setData("text", ev.target.id);
+  console.log(ev.dataTransfer.getData("text"))
+  console.log("=============");
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
 </script>
 </head>
 <body>
@@ -94,7 +112,7 @@ function myFunction() {
 					<h1 class="banner_taital">Yor are in</h1>
 					<p class="browse_text">Browse from more than 15,000,000 adverts while new ones come on daily bassis</p>
 					<div class="banner_bt">
-						<button class="browse_text">Read More</button>
+						<button class="browse_text">Drag and Drop</button>
 					</div>
 				</div>
 			</div>
@@ -102,43 +120,29 @@ function myFunction() {
 	</div>
 	<!-- banner section end -->
 	<!-- search box start -->
+	
+	
 	<div class="container">
 		<div class="search_box">
 
-			<div class="row">
-				<div class="col-sm-3">
-					<div class="form-group">
-                        <input type="text" class="email_boton" placeholder="Search for" name="Email">
-                    </div>
-				</div>
-				<div class="col-sm-3">
-					<div class="form-group">
-                        <input type="text" class="email_boton" placeholder="Loction in" name="Email">
-                    </div>
-				</div>
-				<div class="col-sm-3">
-					<div class="form-group">
-                        <input type="text" class="email_boton" placeholder="category" name="Email">
-                    </div>
-				</div>
-				<div class="col-sm-3">
-					<div class="form-group">
-                        <button class="search_bt">Search</button>
-                    </div>
-				</div>
-				<div class="fashion_menu">
-                    	<ul>
-                    		<li class="active"><a href="#">Auto Mobile</a></li>
-                    		<li><a href="#">Fashion</a></li>
-                    		<li><a href="#">Mother& Child</a></li>
-                    		<li><a href="#">Jobs</a></li>
-                    		<li><a href="#">Real estate</a></li>
-                    		<li><a href="#">Pets</a></li>
-                    		<li><a href="#">Sport</a></li>
-                    		<li><a href="#">More</a></li>
-                    	</ul>
-                    </div>
-			</div>
+			
+			
+				<div  id="div1" class="myBox"  ondrop="drop(event)" ondragover="allowDrop(event)">A</div>				
+				<div  id="div2" class="myBox"  ondrop="drop(event)" ondragover="allowDrop(event)">B</div>
+				<div  id="div3" class="myBox"  ondrop="drop(event)" ondragover="allowDrop(event)">C</div>
+				<br>
+				<br>
+				<div  id="fromBox"   ondrop="drop(event)" ondragover="allowDrop(event)">select from
+					<img id="drag1" width="150" height="69" draggable="true" ondragstart="drag(event)" src="images/logo.png">
+					<img id="drag2" width="150" height="69" draggable="true" ondragstart="drag(event)" src="images/icon.jpeg">
+					<img id="drag3" width="150" height="69" draggable="true" ondragstart="drag(event)" src="images/icon-a.ico">
+					<img id="drag4" width="94" height="94" draggable="true" ondragstart="drag(event)" src="images/icon-b.ico">
+					<img id="drag5" width="94" height="94" draggable="true" ondragstart="drag(event)" src="images/icon-c.ico">
+					<img id="drag6" width="94" height="94" draggable="true" ondragstart="drag(event)" src="images/icon-d.ico">
+                </div>    
+                    
+			
+				
 		</div>
 	</div>
 	<!-- search box end -->
